@@ -1,0 +1,161 @@
+@font-face {
+  font-family: 'nimbus-sans-novas-dot-bold';
+  src: url('/fonts/nimbus-sans-novas-dot/Nimbus-Sans-D-OT-Bold_32747.ttf');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'nimbus-sans-novas-dot-light';
+  src: url('/fonts/nimbus-sans-novas-dot/Nimbus-Sans-D-OT-Light_32752.ttf');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HandelGo';
+  src: url('/fonts/HandelGo.ttf');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ubuntu-Medium';
+  src: url('/fonts/Ubuntu/Ubuntu-Medium.ttf');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'HandelGo';
+}
+
+h2 {
+  font-family: 'nimbus-sans-novas-dot-light';
+}
+
+p {
+  font-family: 'Ubuntu-Medium';
+}
+
+output {
+  color:#07224C;
+}
+
+.wrapper {
+  max-width: 1200px;
+  padding: 0 16px;
+  margin: auto;
+}
+
+.navbar {
+  padding: 20px;
+  margin-bottom: 20px;
+  background: #07224C;
+  display: flex;
+  justify-content: space-between;
+  src: url('/fonts/nimbus-sans-novas-dot/Nimbus-Sans-D-OT-Bold_32747.ttf');
+}
+
+.navbar .create {
+  color: #FF9E15;
+  font-size: 1.5rem;
+}
+
+.navbar .navbar-brand {
+  color: #FF9E15;
+  font-size: 2rem;
+}
+
+.navbar-brand:hover, .create:hover {
+  color: #DDF3F9;
+}
+
+.form-container {
+  width: 70%;
+  margin: 20px auto;
+  justify-content: center;
+  text-align: center;
+}
+
+#formCont {
+  background-color: red important!;
+}
+
+.raForm-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+
+#define{
+  background-color: #0699B3;
+  padding: 1%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#manage{
+  background-color: #54C2E0;
+  padding: 1%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#use{
+  background-color: #DDF3F9;
+  padding: 1%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#red, .red{
+  background-color: #FF4C00;
+  padding: 1%;
+}
+
+#yellow, .yellow{
+  background-color: #FF9E15;
+  padding: 1%;
+}
+
+#green, .green{
+  background-color: #A2D683;
+  padding: 1%
+}
+
+#formView{
+  width: 70%;
+  margin-left: 15%;
+}
+
+#delete, #create, #update{
+  margin-top: 10px;
+}
+
+.question{
+  display: grid;
+  align-content: center;
+  width: 100%;
+  background-color: #DDF3F9;
+  padding: 3%;
+  font-family: 'nimbus-sans-novas-dot-light';
+  color:#008cba
+}
+
+label{
+  color: #DDF3F9;
+}
