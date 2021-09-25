@@ -41,6 +41,21 @@ const NewRaForm = () => {
     const router = useRouter();
 
     useEffect(() => {
+        const createRaForm = async () => {
+            try {
+                const res = await fetch('http://localhost:3000/api/raForms', {
+                    method: 'POST',
+                    headers: {
+                        "Accept": "application/json",
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(form)
+                })
+                router.push("/");
+            } catch (error) {
+                console.log(error);
+            }
+        }
         if (isSubmitting) {
             if (Object.keys(errors).length === 0) {
                 createRaForm();
@@ -49,23 +64,9 @@ const NewRaForm = () => {
                 setIsSubmitting(false);
             }
         }
-    }, [errors])
+    }, [errors, isSubmitting, form, router])
 
-    const createRaForm = async () => {
-        try {
-            const res = await fetch('http://localhost:3000/api/raForms', {
-                method: 'POST',
-                headers: {
-                    "Accept": "application/json",
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(form)
-            })
-            router.push("/");
-        } catch (error) {
-            console.log(error);
-        }
-    }
+
 
     const handleSubmit = (e) => {
         e.preventDefault();

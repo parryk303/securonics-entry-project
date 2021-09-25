@@ -40,6 +40,21 @@ const EditRaForm = ({ raForm }) => {
     const router = useRouter();
 
     useEffect(() => {
+        const updateRaForm = async () => {
+            try {
+                const res = await fetch(`http://localhost:3000/api/raForms/${router.query.id}`, {
+                    method: 'PUT',
+                    headers: {
+                        "Accept": "application/json",
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(form)
+                })
+                router.push("/");
+            } catch (error) {
+                console.log(error);
+            }
+        }
         if (isSubmitting) {
             if (Object.keys(errors).length === 0) {
                 updateRaForm();
@@ -48,23 +63,9 @@ const EditRaForm = ({ raForm }) => {
                 setIsSubmitting(false);
             }
         }
-    }, [errors])
+    }, [errors, isSubmitting, form, router])
 
-    const updateRaForm = async () => {
-        try {
-            const res = await fetch(`http://localhost:3000/api/raForms/${router.query.id}`, {
-                method: 'PUT',
-                headers: {
-                    "Accept": "application/json",
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(form)
-            })
-            router.push("/");
-        } catch (error) {
-            console.log(error);
-        }
-    }
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -86,10 +87,6 @@ const EditRaForm = ({ raForm }) => {
         if (!form.title) {
             err.title = 'Title is required';
         }
-        if (!form.description) {
-            err.description = 'Description is required';
-        }
-
         return err;
     }
 
@@ -105,7 +102,7 @@ const EditRaForm = ({ raForm }) => {
                                 fluid
                                 error={errors.title ? { content: 'Please enter a title', pointing: 'below' } : null}
                                 label='Title'
-                                value={raForm.title}
+                                placeholder={raForm.title}
                                 name='title'
                                 onChange={handleChange}
                             />
@@ -144,7 +141,7 @@ const EditRaForm = ({ raForm }) => {
                                     let percent = document.getElementById(`vm ${index}`).value;
                                     document.getElementById(`vmPercent ${index}`).innerHTML = `${percent}%`
                                 }
-                                let defaultValKey = `th${index}`
+                                let defaultValKey = `vm${index}`
                                 const defaultValue = raForm[defaultValKey];
                                 return (
                                   <div className='question' key={`vm ${index}`} >

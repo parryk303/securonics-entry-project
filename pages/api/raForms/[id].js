@@ -3,7 +3,7 @@ import RaForm from '../../../models/RaForm';
 
 dbconnect();
 
-export default async (req, res) => {
+const formRoute = async (req, res) => {
   const {
     query: { id },
     method
@@ -51,3 +51,5 @@ export default async (req, res) => {
       break;
   }
 }
+
+export default formRoute;

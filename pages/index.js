@@ -19,10 +19,10 @@ const Index = ({ raForms }) => {
                   </Card.Header>
                 </Card.Content>
                 <Card.Content extra>
-                  <Link href={`/${raForm._id}`}>
+                  <Link href={`/${raForm._id}`} passHref>
                     <Button primary>View</Button>
                   </Link>
-                  <Link href={`/${raForm._id}/edit`}>
+                  <Link href={`/${raForm._id}/edit`} passHref>
                     <Button primary>Edit</Button>
                   </Link>
                 </Card.Content>
