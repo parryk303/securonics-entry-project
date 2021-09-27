@@ -16,9 +16,15 @@ const Layout = ({ children }) => (
                 crossOrigin='' />
                 <link
                 rel='preload'
-                href='/fonts/nimbus-sans-novas-dot/Nimbus-Sans-D-OT-Light.tff'
+                href='/fonts/HandelGo.ttf'
                 as='font'
                 crossOrigin='' />
+                <link
+                rel='preload'
+                href='/fonts/Ubuntu/Ubuntu-Medium.ttf'
+                as='font'
+                crossOrigin='' />
+
             <link
                 async
                 rel='stylesheet'
