@@ -44,7 +44,7 @@ const EditRaForm = ({ raForm }) => {
     useEffect(() => {
         const updateRaForm = async () => {
             try {
-                const res = await fetch(`https://master.dqm5wpyyz0969.amplifyapp.com/api/raForms/${router.query.id}`, {
+                const res = await fetch(`/${router.query.id}`, {
                     method: 'PUT',
                     headers: {
                         "Accept": "application/json",
