@@ -8,9 +8,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -H 0.0.0.0 -p ${PORT:8080}",
-    "lint": "next lint",
-    "export": "npm run build && export"
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "cors": "^2.8.5",
