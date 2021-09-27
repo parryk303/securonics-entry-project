@@ -18,7 +18,7 @@ const RaForm = ({ raForm }) => {
         const deleteRaForm = async () => {
             const raFormId = router.query.id;
             try {
-                const deleted = await fetch(`https://master.dqm5wpyyz0969.amplifyapp.com/api/raForms/${raFormId}`, {
+                const deleted = await fetch(`/api/raForms/${raFormId}`, {
                     method: "Delete"
                 });
 
@@ -170,7 +170,7 @@ const RaForm = ({ raForm }) => {
 }
 
 RaForm.getInitialProps = async ({ query: { id } }) => {
-    const res = await fetch(`https://master.dqm5wpyyz0969.amplifyapp.com/api/raForms/${id}`);
+    const res = await fetch(`/api/raForms/${id}`);
     const { data } = await res.json();
 
     return { raForm: data }

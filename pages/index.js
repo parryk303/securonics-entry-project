@@ -38,7 +38,7 @@ const Index = ({ raForms }) => {
 }
 
 Index.getInitialProps = async () => {
-  const res = await fetch('https://master.dqm5wpyyz0969.amplifyapp.com/api/raForms');
+  const res = await fetch('/api/raForms');
   const { data } = await res.json();
 
   return { raForms: data }
