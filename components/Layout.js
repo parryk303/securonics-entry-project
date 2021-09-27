@@ -16,7 +16,7 @@ const Layout = ({ children }) => (
                 crossOrigin='' />
                 <link
                 rel='preload'
-                href='/fonts/nimbus-sans-novas-dot/Nimbus-Sans-D-OT-Light'
+                href='/fonts/nimbus-sans-novas-dot/Nimbus-Sans-D-OT-Light.tff'
                 as='font'
                 crossOrigin='' />
             <link
