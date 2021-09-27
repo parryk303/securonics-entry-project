@@ -45,7 +45,7 @@ const NewRaForm = () => {
     useEffect(() => {
         const createRaForm = async () => {
             try {
-                const res = await fetch('https://master.dqm5wpyyz0969.amplifyapp.com/api/raForms', {
+                const res = await fetch('/api/raForms', {
                     method: 'POST',
                     headers: {
                         "Accept": "application/json",

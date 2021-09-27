@@ -23,7 +23,7 @@ const Layout = ({ children }) => (
                 async
                 rel='stylesheet'
                 href='https://cdn.jsdelivr.net/npm/semantic-ui@2/dist/semantic.min.css' />
-                <title>Securonics Risk Assessment</title>
+                <title>Securonix Risk Assessment</title>
                 <link rel="icon" href="/favicon.ico" />
         </Head>
         <Navbar />
