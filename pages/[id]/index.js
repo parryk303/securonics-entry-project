@@ -2,6 +2,8 @@ import fetch from 'isomorphic-unfetch';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { Confirm, Button, Loader, Card } from 'semantic-ui-react';
+import cors from 'cors';
+cors()
 
 const threatHunting = ['Establishing threat hunting goals', 'Current coverage of threat hunting goals', 'Hiring personnel dedicated to threat hunting', 'Formulating a threat hunting hypothesis', 'Acquiring specialized datasets and tools', 'Threat hunting training', 'SOC members who can develop needed cybersecurity scripts', 'Ability to scale threat hunting program', 'Utilizing full packet capture', 'Utilizing windows registry keys', 'Utilizing system memory'];
 
@@ -16,7 +18,7 @@ const RaForm = ({ raForm }) => {
         const deleteRaForm = async () => {
             const raFormId = router.query.id;
             try {
-                const deleted = await fetch(`http://localhost:3000/api/raForms/${raFormId}`, {
+                const deleted = await fetch(`https://master.dqm5wpyyz0969.amplifyapp.com/api/raForms/${raFormId}`, {
                     method: "Delete"
                 });
 
@@ -168,7 +170,7 @@ const RaForm = ({ raForm }) => {
 }
 
 RaForm.getInitialProps = async ({ query: { id } }) => {
-    const res = await fetch(`http://localhost:3000/api/raForms/${id}`);
+    const res = await fetch(`https://master.dqm5wpyyz0969.amplifyapp.com/api/raForms/${id}`);
     const { data } = await res.json();
 
     return { raForm: data }

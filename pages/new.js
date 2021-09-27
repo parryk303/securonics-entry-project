@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import fetch from 'isomorphic-unfetch';
 import { Button, Form, Loader } from 'semantic-ui-react';
 import { useRouter } from 'next/router';
+import cors from 'cors';
+cors()
 
 const threatHunting = ['Establishing threat hunting goals', 'Current coverage of threat hunting goals', 'Hiring personnel dedicated to threat hunting', 'Formulating a threat hunting hypothesis', 'Acquiring specialized datasets and tools', 'Threat hunting training', 'SOC members who can develop needed cybersecurity scripts', 'Ability to scale threat hunting program', 'Utilizing full packet capture', 'Utilizing windows registry keys', 'Utilizing system memory'];
 
@@ -43,7 +45,7 @@ const NewRaForm = () => {
     useEffect(() => {
         const createRaForm = async () => {
             try {
-                const res = await fetch('http://localhost:3000/api/raForms', {
+                const res = await fetch('https://master.dqm5wpyyz0969.amplifyapp.com/api/raForms', {
                     method: 'POST',
                     headers: {
                         "Accept": "application/json",
@@ -91,18 +93,6 @@ const NewRaForm = () => {
 
         return err;
     }
-
-    // const colorId = (name) => {
-
-    //     const val = Number(name);
-    //     if (val >= 0 && val <= 33) {
-    //         return 'red';
-    //     }
-    //     if (val >= 34 && val <= 66) {
-    //         return 'yellow';
-    //     }
-    //     else return 'green';
-    // }
 
     return (
         <div className="form-container">
