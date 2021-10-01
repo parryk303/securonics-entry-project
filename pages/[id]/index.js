@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { Confirm, Button, Loader, Card } from 'semantic-ui-react';
 import cors from 'cors';
+import { jsPDF } from "jspdf";
 cors()
 
 const threatHunting = ['Establishing threat hunting goals', 'Current coverage of threat hunting goals', 'Hiring personnel dedicated to threat hunting', 'Formulating a threat hunting hypothesis', 'Acquiring specialized datasets and tools', 'Threat hunting training', 'SOC members who can develop needed cybersecurity scripts', 'Ability to scale threat hunting program', 'Utilizing full packet capture', 'Utilizing windows registry keys', 'Utilizing system memory'];
@@ -52,6 +53,65 @@ const RaForm = ({ raForm }) => {
         else return 'green';
     }
 
+    const pdf = () => {
+        const doc = new jsPDF();
+        doc.addImage('https://i.imgur.com/dISO4s0.jpeg', "JPEG", 30, 0, 150, 50), doc.setFont('helvetica', 'bold')
+
+        doc.text(`${raForm.title} Risk Assessment Report:`, 12, 50)
+        doc.text(`Threat Hunting Average: thAve%`, 12, 70), doc.setFont('helvetica', 'normal')
+        doc.text(`${threatHunting[0]}: ....................................................... `, 12, 76)
+        doc.text(`${raForm.vm0}%`, 186, 76)
+        doc.text(`${threatHunting[1]}: ........................................... `, 12, 82)
+        doc.text(`${raForm.vm0}%`, 186, 82)
+        doc.text(`${threatHunting[2]}: ..................................... `, 12, 88)
+        doc.text(`${raForm.vm0}%`, 186, 88)
+        doc.text(`${threatHunting[3]}: ............................................ `, 12, 94)
+        doc.text(`${raForm.vm0}%`, 186, 94)
+        doc.text(`${threatHunting[4]}: ........................................... `, 12, 100)
+        doc.text(`${raForm.vm0}%`, 186, 100)
+        doc.text(`${threatHunting[5]}: ....................................................................... `, 12, 106)
+        doc.text(`${raForm.vm0}%`, 186, 106)
+        doc.text(`${threatHunting[6]}: ......... `, 12, 112)
+        doc.text(`${raForm.vm0}%`, 186, 112)
+        doc.text(`${threatHunting[7]}: ............................................... `, 12, 118)
+        doc.text(`${raForm.vm0}%`, 186, 118)
+        doc.text(`${threatHunting[8]}: ................................................................. `, 12, 124)
+        doc.text(`${raForm.vm0}%`, 186, 124)
+        doc.text(`${threatHunting[9]}: ........................................................... `, 12, 130)
+        doc.text(`${raForm.vm0}%`, 186, 130)
+        doc.text(`${threatHunting[10]}: ..................................................................... `, 12, 136)
+        doc.text(`${raForm.vm0}%`, 186, 136)
+
+        doc.setFont('helvetica', 'bold')
+        doc.text(`Vulnerability Managment Average: vmAve%`, 12, 156)
+        doc.setFont('helvetica', 'normal')
+        doc.text(`${vulnerabilityManagement[0]}: ............. `, 12, 162)
+        doc.text(`${raForm.vm0}%`, 186, 162)
+        doc.text(`${vulnerabilityManagement[1]}: ...... `, 12, 168)
+        doc.text(`${raForm.vm1}%`, 186, 168)
+        doc.text(`${vulnerabilityManagement[2]}: .......................... `, 12, 174)
+        doc.text(`${raForm.vm2}%`, 186, 174)
+        doc.text(`${vulnerabilityManagement[3]}: ...................... `, 12, 180)
+        doc.text(`${raForm.vm3}%`, 186, 180)
+        doc.text(`${vulnerabilityManagement[4]}: ................................................... `, 12, 186)
+        doc.text(`${raForm.vm4}%`, 186, 186)
+        doc.text(`${vulnerabilityManagement[5]}: .................................................. `, 12, 192)
+        doc.text(`${raForm.vm5}%`, 186, 192)
+        doc.text(`${vulnerabilityManagement[6]}: ...................................... `, 12, 198)
+        doc.text(`${raForm.vm6}%`, 186, 198)
+        doc.text(`${vulnerabilityManagement[7]}: ................. `, 12, 204)
+        doc.text(`${raForm.vm7}%`, 186, 204)
+        doc.text(`${vulnerabilityManagement[8]}: ............................. `, 12, 210)
+        doc.text(`${raForm.vm8}%`, 186, 210)
+        doc.text(`${vulnerabilityManagement[9]}: ..................................................... `, 12, 216)
+        doc.text(`${raForm.vm9}%`, 186, 216)
+        doc.text(`${vulnerabilityManagement[10]}: .............................................. `, 12, 222)
+        doc.text(`${raForm.vm10}%`, 186, 222)
+        doc.text(`${vulnerabilityManagement[11]}: ....................................................................`, 12, 228)
+        doc.text(`${raForm.vm11}%`, 186, 228)
+        doc.save(`${raForm.title} RA Report.pdf`);
+      }
+
     return (
         <div className="raForm-container">
             {isDeleting
@@ -59,6 +119,7 @@ const RaForm = ({ raForm }) => {
                 :
                 <>
                     <h1>{raForm.title}</h1>
+                    <button onClick={pdf}>Generate PDF</button>
                     <h3>Threat Hunting</h3>
                     <div className='ui centered grid' id='formView'>
                         <div className='row'>

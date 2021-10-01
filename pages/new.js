@@ -4,6 +4,7 @@ import fetch from 'isomorphic-unfetch';
 import { Button, Form, Loader } from 'semantic-ui-react';
 import { useRouter } from 'next/router';
 import cors from 'cors';
+import { jsPDF } from "jspdf";
 cors()
 
 const threatHunting = ['Establishing threat hunting goals', 'Current coverage of threat hunting goals', 'Hiring personnel dedicated to threat hunting', 'Formulating a threat hunting hypothesis', 'Acquiring specialized datasets and tools', 'Threat hunting training', 'SOC members who can develop needed cybersecurity scripts', 'Ability to scale threat hunting program', 'Utilizing full packet capture', 'Utilizing windows registry keys', 'Utilizing system memory'];
@@ -94,9 +95,16 @@ const NewRaForm = () => {
         return err;
     }
 
+    const pdf = () => {
+        const doc = new jsPDF();
+        doc.text('hello world', 20, 20)
+        doc.save("a4.pdf");
+      }
+
     return (
         <div className="form-container">
             <h1>Risk Assessment Form</h1>
+
             <div>
                 {
                     isSubmitting
